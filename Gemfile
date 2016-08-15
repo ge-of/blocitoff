@@ -23,8 +23,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 #bootstrap for CSS
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass'
+
 gem 'autoprefixer-rails'
+# Used for encrypting User paramters
+gem 'bcrypt'
 
 
 # Use ActiveModel has_secure_password

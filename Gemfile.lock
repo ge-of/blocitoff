@@ -181,7 +181,8 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bootstrap-sass (~> 3.2.0)
+  bcrypt
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   devise
