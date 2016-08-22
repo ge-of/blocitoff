@@ -44,6 +44,8 @@ group :development, :test do
   gem 'byebug'
   # TDD rspec testing
   gem 'rspec-rails', '~> 3.0'
+  # builds objects to test
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
