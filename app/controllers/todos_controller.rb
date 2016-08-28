@@ -24,18 +24,20 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
-    @todo = Todo.new(todo_params)
+    @user = User.find(params[:id])
+    @todo = @user.todos.create(params[:todo])
 
-    respond_to do |format|
-      if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
-        format.json { render :show, status: :created, location: @todo }
-      else
-        format.html { render :new }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
+    if @todo.save
+      redirect_to @user, notice: "New todo saved!"
+    else
+      redirect_to @user, error: "There was an error creating todo, please try again."
     end
   end
+
+  def todos_params
+    params.require(:todo)
+  end
+
 
   # PATCH/PUT /todos/1
   # PATCH/PUT /todos/1.json
