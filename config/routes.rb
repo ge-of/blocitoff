@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :todos
+  resources :todos do
+    resources :users
+  end
   root 'todos#index'
   devise_for :models
   # The priority is based upon order of creation: first created -> highest priority.

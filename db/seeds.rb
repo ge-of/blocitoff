@@ -5,8 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Todo.create!(title: 'grocery shopping', notes: 'pickles, eggs, red onion')
-Todo.create!(title: 'wash the car')
-Todo.create!(title: 'register kids for school', notes: 'Register Kira for Ruby Junior High and Caleb for Rails High School')
-Todo.create!(title: 'check engine light', notes: 'The check engine light is on in the Tacoma')
-Todo.create!(title: 'dog groomers', notes: 'Take Pinky and Redford to the groomers on Wednesday the 23rd')
+require 'faker'
+
+ # Create Users
+ 5.times do
+   user = User.new(
+     email:    Faker::Internet.email,
+     password: Faker::Lorem.characters(10)
+   )
+   user.skip_confirmation!
+   user.save!
+ end
+ users = User.all
+ member = User.new(
+  email:    "member@letsblocitoff.com",
+  password: "123456789"
+)
+member.skip_confirmation!
+member.save!
+
+ 5.times do
+  Todo.create!(
+   user: users.sample,
+   title: Faker::Lorem.sentence,
+   notes: Faker::Lorem.sentence
+  )
+ end
+puts "#{User.count} users created"
+puts "#{Item.count} todos created"
