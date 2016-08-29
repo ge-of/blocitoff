@@ -18,7 +18,7 @@ require 'faker'
  end
  users = User.all
  member = User.new(
-  email:    "member@letsblocitoff1.com",
+  email:    Faker::Internet.email,
   password: "123456789"
 )
 member.skip_confirmation!
@@ -32,4 +32,4 @@ member.save!
   )
  end
 puts "#{User.count} users created"
-puts "#{Item.count} todos created"
+puts "#{Todo.count} todos created"
