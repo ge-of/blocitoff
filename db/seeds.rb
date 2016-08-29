@@ -18,7 +18,7 @@ require 'faker'
  end
  users = User.all
  member = User.new(
-  email:    "member@letsblocitoff.com",
+  email:    "member@letsblocitoff1.com",
   password: "123456789"
 )
 member.skip_confirmation!
