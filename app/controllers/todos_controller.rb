@@ -24,18 +24,17 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
-    @user = User.find(params[:id])
-    @todo = @user.todos.create(params[:todo])
+    @todo = current_user.todos.create(todos_params)
 
     if @todo.save
-      redirect_to @user, notice: "New todo saved!"
+      redirect_to todos_path, notice: "New todo saved!"
     else
-      redirect_to @user, error: "There was an error creating todo, please try again."
+      redirect_to todos_path, error: "There was an error creating todo, please try again."
     end
   end
 
   def todos_params
-    params.require(:todo)
+    params.require(:todo).permit(:notes, :title)
   end
 
 
@@ -58,10 +57,14 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     if @todo.destroy
-      respond_to do |format|
-        format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      flash[:notice] = "Completed!"
+    else
+      flash[:alert] = "There was an error. Try again."
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
