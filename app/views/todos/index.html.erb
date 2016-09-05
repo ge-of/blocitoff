@@ -18,7 +18,8 @@
         <td><%= todo.notes %></td>
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete %></td>
+        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>  Time left: <%= todo.days_left %> days </td>
       </tr>
     <% end %>
   </tbody>
