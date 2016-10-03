@@ -29,6 +29,8 @@ gem 'autoprefixer-rails'
 # Used for encrypting User paramters
 gem 'bcrypt'
 
+gem 'rack-cors', '~> 0.4.0', :require => 'rack/cors'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
