@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'items/create'
+
   devise_for :users
   resources :todos
   root 'todos#index'
