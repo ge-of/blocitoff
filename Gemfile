@@ -31,6 +31,9 @@ gem 'bcrypt'
 
 gem 'rack-cors', '~> 0.4.0', :require => 'rack/cors'
 
+#Used for adding fake data like names, emails, etc.
+gem 'faker'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
