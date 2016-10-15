@@ -1,1 +1,6 @@
+<tbody>
+  <%= content_tag :tr, class: "info", id: "todo-#{todo.id}" do %>
+    <td><<%= link_to "", [@user,todo] , method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
 
+  <% end %>
+</tbody>
