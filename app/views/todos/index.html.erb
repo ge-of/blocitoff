@@ -13,12 +13,12 @@
 
   <tbody>
     <% @todos.each do |todo| %>
-      <tr>
+      <tr id="todo-<%= todo.id %>" >
         <td><%= todo.title %></td>
         <td><%= todo.notes %></td>
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
         <td>  Time left: <%= todo.days_left %> days </td>
       </tr>
     <% end %>
